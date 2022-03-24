@@ -20,7 +20,14 @@ int main()
 	{
 		for(int j = 1;j < sum + 1; j++)
 		{
-			table[i][j] = table[i-1][j] || table[i-1][j-val[i-1]];
+			if(val[i-1]>j)
+			{
+				table[i][j] = table[i-1][j];
+			}
+			else
+			{
+				table[i][j] = table[i-1][j] || table[i-1][j-val[i-1]];
+			}
 		}
 	}
 	for(int i = 0;i < size + 1; i++)

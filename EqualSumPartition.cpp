@@ -30,14 +30,16 @@ int main()
 
 	for(int i = 1;i < n+1;i++)
 	{
-		for(int j = 1;j < sum+1;j++){
-			if(arr[i-1] == j){
-
-				table[i][j] = 1;
+		for(int j = 1;j < sum+1;j++)
+		{
+			if(arr[i-1] > j)
+			{
+				table[i][j] = table[i-1][j];
 			}
-		
-			table[i][j] = table[i-1][j] || table[i-1][j-arr[i-1]];
-			
+			else
+			{
+				table[i][j] = table[i-1][j] || table[i-1][j-arr[i-1]];
+			}
 		}
 	}
 	for(int i = 0;i < n+1;i++){
